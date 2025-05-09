@@ -129,3 +129,16 @@ dist
 build
 .strapi-updater.json
 .strapi-cloud.json
+public/uploads/*
+
+############################
+# Migrate & Scripts
+############################
+
+issue_migrate
+migration_output
+temp_images
+scripts
+translations
+test_*
+content_migration*

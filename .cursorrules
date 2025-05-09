@@ -1,0 +1,61 @@
+{
+  "version": 1,
+  "rules": [
+    {
+      "name": "只使用bun包管理器",
+      "pattern": "(npm|yarn|pnpm)\\s+(install|add|i|remove|rm)",
+      "message": "请使用bun替代其他包管理器。例如：使用'bun install'代替'npm install'",
+      "severity": "error"
+    },
+    {
+      "name": "bun运行脚本",
+      "pattern": "(npm|yarn|pnpm)\\s+run",
+      "message": "请使用'bun run'运行脚本",
+      "severity": "error"
+    },
+    {
+      "name": "避免控制台日志",
+      "pattern": "console\\.(log|info|warn|error)\\(",
+      "message": "请在生产代码中移除console语句",
+      "severity": "warning",
+      "exclude": ["**/tests/**/*", "**/*.test.*", "**/*.spec.*"]
+    },
+    {
+      "name": "使用单引号",
+      "pattern": "\"([^\"]*)\"",
+      "message": "请使用单引号代替双引号以保持一致性",
+      "severity": "warning",
+      "exclude": ["**/*.json", "**/*.md"]
+    },
+    {
+      "name": "强制类型安全",
+      "pattern": ":\\s*any",
+      "message": "请避免使用'any'类型，尽可能指定具体类型",
+      "severity": "warning"
+    },
+    {
+      "name": "强制异步错误处理",
+      "pattern": "await\\s+\\w+\\(.*\\)(?!\\s*\\.catch|\\s*;\\s*catch|\\s*\\)\\s*\\.catch)",
+      "message": "请确保处理await表达式可能抛出的错误",
+      "severity": "warning"
+    },
+    {
+      "name": "使用可选链操作符",
+      "pattern": "(\\w+)\\s*&&\\s*\\1\\.",
+      "message": "请考虑使用可选链操作符(?.)代替&&检查",
+      "severity": "suggestion"
+    },
+    {
+      "name": "禁止使用var",
+      "pattern": "var\\s+",
+      "message": "请使用let或const代替var",
+      "severity": "error"
+    },
+    {
+      "name": "确保lint通过",
+      "pattern": "bun run build(?!\\s*&&\\s*bun run lint)",
+      "message": "构建前请确保运行'bun run lint'以检查代码质量",
+      "severity": "suggestion"
+    }
+  ]
+} 
