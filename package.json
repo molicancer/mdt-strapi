@@ -18,7 +18,8 @@
     "fix-image-download": "bun scripts/fix-image-download.js",
     "fix-migration": "bun scripts/fix-content-migration.js",
     "lint": "eslint .",
-    "translate": "node scripts/create_en_localizations.js"
+    "translate": "node scripts/create_en_localizations.js",
+    "test-upload": "bun test_large_file_upload.js"
   },
   "dependencies": {
     "@internationalized/number": "3.1.1",
